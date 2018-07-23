@@ -9,8 +9,8 @@ development:
 test:
   dialect: postgres
   database: ai_test
-  user: {{env "DATABASE_USER"}}
-  password: {{env "DATABASE_PASSWORD"}}
+  user: postgres  
+  password: password
   host: 127.0.0.1
   pool: 5
 

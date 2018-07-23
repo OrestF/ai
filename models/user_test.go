@@ -1,7 +1,22 @@
 package models
 
-import "testing"
+import (
+	"github.com/gobuffalo/suite"
+)
 
-func Test_User(t *testing.T) {
-	t.Fatal("This test needs to be implemented!")
+type ActionSuite struct {
+	*suite.Action
+}
+
+func (as *ActionSuite) Test_User() {
+
+	username := "John Smith"
+	age := int8(18)
+
+	user := User{
+		Name: username,
+		Age:  age,
+	}
+
+	as.Equal("sa", user.Name)
 }

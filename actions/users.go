@@ -31,12 +31,9 @@ func UsersEdit(c buffalo.Context) error {
 }
 
 func UsersUpdate(c buffalo.Context) error {
-	println("USERS UPDATE________________________________________")
 	user := models.User{}
 	models.DB.Find(&user, c.Param("id"))
 	c.Bind(&user)
-	println("______________NAME", user.Name)
-	println("______________Age", user.Age)
 	models.DB.Update(&user)
 	return c.Render(200, r.Auto(c, user))
 }
