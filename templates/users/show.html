@@ -1,2 +1,7 @@
 <h1>Users#Show</h1>
 <h3><%= user.Name %> (<%= user.Age %>)</h3>
+<hr>
+<a href="/users/<%= user.ID %>/edit">Edit</a>
+<a href="/users/<%= user.ID %>" data-method="DELETE" data-confirm="Are you sure?">Delete</a>
+<hr>
+<a href="/users">Users</a>

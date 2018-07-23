@@ -13,6 +13,7 @@
                 <td><a href="/users/<%= user.ID %>"> <%= user.Name %></a></td>
                 <td> <%= user.Age %></td>
                 <td> <a href="/users/<%= user.ID %>" data-method="DELETE" data-confirm="Are you sure?" >Delete</a></td>
+                <td> <a href="/users/<%= user.ID %>/edit" >Edit</a></td>
             </tr>
         <% }%>
     </tbody>

@@ -1,0 +1,12 @@
+<h1>Users#edit</h1>
+<form action="/users/<%= user.ID%>/edit" method="POST">
+    Name:
+    <br>
+    <input type="text" name="name" value="<%= user.Name %>">
+    <br> Age:
+    <br>
+    <input type="number" name="age" value="<%= user.Age %>" min="18">
+    <br>
+    <br>
+    <input type="submit" value="Submit">
+</form>

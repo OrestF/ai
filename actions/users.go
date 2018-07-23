@@ -24,6 +24,23 @@ func UsersCreate(c buffalo.Context) error {
 	return c.Render(200, r.Auto(c, user))
 }
 
+func UsersEdit(c buffalo.Context) error {
+	user := models.User{}
+	models.DB.Find(&user, c.Param("id"))
+	return c.Render(200, r.Auto(c, user))
+}
+
+func UsersUpdate(c buffalo.Context) error {
+	println("USERS UPDATE________________________________________")
+	user := models.User{}
+	models.DB.Find(&user, c.Param("id"))
+	c.Bind(&user)
+	println("______________NAME", user.Name)
+	println("______________Age", user.Age)
+	models.DB.Update(&user)
+	return c.Render(200, r.Auto(c, user))
+}
+
 func UsersDelete(c buffalo.Context) error {
 	user := models.User{}
 	models.DB.Find(&user, c.Param("id"))
