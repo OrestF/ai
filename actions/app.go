@@ -7,7 +7,6 @@ import (
 	"github.com/gobuffalo/envy"
 	"github.com/unrolled/secure"
 
-	"github.com/gobuffalo/buffalo/middleware/csrf"
 	"github.com/gobuffalo/buffalo/middleware/i18n"
 	"github.com/gobuffalo/packr"
 	"github.com/projects/ai/models"
@@ -37,7 +36,7 @@ func App() *buffalo.App {
 
 		// Protect against CSRF attacks. https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)
 		// Remove to disable this.
-		app.Use(csrf.New)
+		// app.Use(csrf.New)
 
 		// Wraps each request in a transaction.
 		//  c.Value("tx").(*pop.PopTransaction)
@@ -46,10 +45,13 @@ func App() *buffalo.App {
 
 		// Setup and use translations:
 		app.Use(translations())
+		ConfigRoutes(app)
+		// app.GET("/", HomeHandler)
 
-		app.GET("/", HomeHandler)
-
-		app.ServeFiles("/", assetsBox) // serve files from the public directory
+		// app.GET("/users", UsersIndex)
+		// app.GET("/users/show", UsersShow)
+		// app.GET("/users/create", UsersCreate)
+		// app.ServeFiles("/", assetsBox) // serve files from the public directory
 	}
 
 	return app

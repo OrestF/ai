@@ -1,0 +1,19 @@
+<h1>Users#Index</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%= for (user) in users { %>
+            <tr>
+                <td><a href="/users/<%= user.ID %>"> <%= user.Name %></a></td>
+                <td> <%= user.Age %></td>
+                <td> <a href="/users/<%= user.ID %>" data-method="DELETE" data-confirm="Are you sure?" >Delete</a></td>
+            </tr>
+        <% }%>
+    </tbody>
+</table>
